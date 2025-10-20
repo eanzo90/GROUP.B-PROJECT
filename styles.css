@@ -36,3 +36,9 @@ nav ul li a:hover{
     height: 100vh;
     text-justify: distribute;
 }
+footer{
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}

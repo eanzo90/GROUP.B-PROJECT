@@ -3,30 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GROUP B</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'poppins',sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        /* header section*/
+        header{
+            height: 100vh;
+            background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before{
+            content: ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .hero-content{
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        h1{
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+        .subtitle{
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        .btn{
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        btn:hover{
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        nav{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background 0.3s ease;
+        }
+        nav.scrolled{
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav ul{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav li{
+            margin: 0 20px;
+        }
+        nav a{
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        nav.scrolled a{
+            color: #333;
+        }
+        nav a:hover{
+            color: #ffd700;
+        }
+        /*section*/
+        section{
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2{
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+        /*about*/
+        #about{
+            background: white;
+            text-align: center;
+        }
+        #about p{
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+        }
+        .skill-tag{
+            padding: 8px 20px;
+            background: #667eea;
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+        .skill-tag:hover{
+            transform: scale(1.05);
+        }
+        /*projects*/
+        #projects{
+            background: #f8f9fa;
+        }
+        .projects-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+            gap: 30px;
+        }
+        .project-card{
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease,box-shadow 0.3s ease;
+        }
+        .project-image{
+            height: 200px;
+            background: linear-gradient(45deg,#667eea,#764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .project-image img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .project-content{
+            padding: 20px;
+        }
+        .project-content h3{
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .project-links{
+            display: flex;
+            gap: 10px;
+        }
+        .project-links a{
+            padding: 8px 15px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        .project-links a:hover{
+            background: #5a67d8;
+        }
+        /*contact*/
+        #contact{
+            background: white;
+            text-align: center;
+        }
+        .contact-info{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 2rem;
+        }
+        .contact-item{
+            max-width: 200px;
+        }
+        .contact-item h3{
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .contact-item p{
+            color: #666;
+        }
+        /*footer*/
+        footer{
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        /*responsive*/
+        @media (max-width: 768px){
+            h1{
+                font-size: 2.5rem;
+            }
+            .subtitle{
+                font-size: 1.2rem;
+            }
+            nav ul{
+                flex-direction: column;
+                gap: 10px;
+            }
+            .skills{
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="services.html">SERVICES</a></li>
-            <li><a href="moreinfo.html">MORE INFO</a></li>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#project">PROJECT</a></li>
+            <li><a href="#contact">CONTACT</a></li>
         </ul>
     </nav>
-  
-    <section id="intro">
-        HOME<br \><br \>
-        Thank you for visiting our page<br \><br \>
-        We offer different services connected to the day today 
-            modern technology.<br \><br \>
-        GROUP B DEVELOPERS.
+    <header id="home">
+        <div class="hero-content">
+            <h1>OUR PAGE</h1>
+            <p class="subtitle">FULL STACK DEVELOPERS AND UI/UX ENTHUSIAST</p>
+            <a href="#project" class="btn">OUR WORK</a>
+        </div>
+    </header>
+    <section id="about">
+        <h2>ABOUT US</h2>
+        <p>our team of photography and videography experts is here to help you find the right gear for your needs.
+            we  offer competitive pricing on all our products, ensuring you get the best value for your money.
+        </p>
+        <p>we strive to ship all orders quickly and efficiently, so you can start capturing your vision as soon as possible.</p>
+        <p>Whether you are seasoned professional or just starting out, visual tech company is your one stop choice for alll your photography and videography needs. Browse our products today and discover the difference for yourself.</p>
+        <p class="skills">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JAVASCRIPT</span>
+            <span class="skill-tag">C PROGRAMMING</span>
+            <span class="skill-tag">MYSQL</span>
+            <span class="skill-tag">BOOTSTRAP</span>
+        </p>
+    </section>
+    <section id="projects">
+        <h2>OUR PROJECTS</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">GROUP TASK</div>
+                <div class="project-content">
+                    <h3>BEST SITE</h3>
+                    <p>Just with one click we are right there to serve you</p>
+                    <div class="project-links">
+                        <a href="#">LIVE DEMO</a>
+                        <a href="#">GITHUB</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">PORTFOLIO SITE</div>
+                <div class="project-content">
+                    <h3>GROUP PORTFOLIO</h3>
+                    <p>This very site is a modern to date technology site</p>
+                    <div class="project-links">
+                        <a href="#">LIVE DEMO</a>
+                        <a href="#">GITHUB</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>GET IN TOUCH WITH US</h2>
+        <p>let us help you collaborate on your big project</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p>eanzo863@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>LinkedIn</h3>
+                <p>eanzo863@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>GITHUB</h3>
+                <p>Eanzo</p>
+            </div>
+        </div>
     </section>
     <footer>
-        <div class="container">
-            <p>&copy;2025 GROUP B DEVELOPERS</p>
-        </div>
+        <p>&copy;2025 GROUP B, All rights reserved.</p>
     </footer>
+    <script>
+        //smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor={
+            anchor.addEventListener('click',function(e){
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behaviour:'smooth'
+                });
+            });
+        });
+        //navbar scroll effect
+        window.addEventListener('scroll',()=>{
+            const nav=document.querySelector('nav');
+            if(window.scrollY>50){
+                nav.classList.add('scrolled');
+            }else{
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+
 </body>
 </html>
